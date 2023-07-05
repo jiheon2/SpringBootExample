@@ -28,4 +28,14 @@ VALUES (#{user_id},
         SYSDATE())
     </insert>
     <!-- =================================================== -->
+
+
+    <!-- =========== 로그인 하기위해 ID와 비밀번호 일치하는지 확인하기 ================= -->
+    <select id="getLogin" parameterType="UserInfoDTO" resultType="UserInfoDTO">
+        SELECT USER_ID, USER_NAME, EMAIL
+        FROM USER_INFO
+        WHERE USER_ID = #{user_id}
+        AND PASSWORD = #{password}
+    </select>
+    <!-- ===================== 함수명과 매개변수타입, 반환타입명시 ===================== -->
 </mapper>
