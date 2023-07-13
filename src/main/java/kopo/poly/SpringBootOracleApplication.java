@@ -4,6 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.web.client.RestTemplate;
+
 import javax.sql.DataSource;
 
 @SpringBootApplication
@@ -21,6 +23,9 @@ public class SpringBootOracleApplication {
         dataSource.setPassword("1234");
         return dataSource;
     }
+
+    @Bean
+    public RestTemplate restTemplate(){return new RestTemplate();}
 
 }
 
